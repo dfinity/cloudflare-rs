@@ -153,10 +153,7 @@ pub struct ListDnsRecordsParams {
 
 /// Extra Cloudflare-specific information about the record
 #[derive(Deserialize, Debug)]
-pub struct Meta {
-    /// Will exist if Cloudflare automatically added this DNS record during initial setup.
-    pub auto_added: bool,
-}
+pub struct Meta {}
 
 /// Type of the DNS record, along with the associated value.
 /// When we add support for other types (LOC/SRV/...), the `meta` field should also probably be encoded
@@ -188,8 +185,6 @@ pub struct DnsRecord {
     pub name: String,
     /// Time to live for DNS record. Value of 1 is 'automatic'
     pub ttl: u32,
-    /// Zone identifier tag
-    pub zone_id: String,
     /// When the record was last modified
     pub modified_on: DateTime<Utc>,
     /// When the record was created
@@ -203,8 +198,6 @@ pub struct DnsRecord {
     pub id: String,
     /// Whether the record is receiving the performance and security benefits of Cloudflare
     pub proxied: bool,
-    /// The domain of the record
-    pub zone_name: String,
 }
 
 impl ApiResult for DnsRecord {}
