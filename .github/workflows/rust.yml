@@ -11,9 +11,9 @@ jobs:
         rust: [stable]
 
     steps:
-    - uses: hecrj/setup-rust-action@v2
+    - uses: hecrj/setup-rust-action@110f36749599534ca96628b82f52ae67e5d95a3c # v2
       with:
         rust-version: ${{ matrix.rust }}
-    - uses: actions/checkout@master
+    - uses: actions/checkout@61b9e3751b92087fd0b06925ba6dd6314e06f089 # master
     - name: Run tests
       run: cargo test --verbose
